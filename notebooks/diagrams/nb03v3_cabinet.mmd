@@ -1,0 +1,17 @@
+flowchart LR
+    A["Agent writes<br/>/profile.md"] --> R{{"Receptionist<br/>(namespace factory)<br/>who is asking?"}}
+    R -->|"Alice"| D1[("Drawer<br/>(alice, filesystem)")]
+    R -->|"Bob"| D2[("Drawer<br/>(bob, filesystem)")]
+    D1 --> F1["/profile.md<br/>vegetarian, peanut allergy"]
+    D2 --> F2["/profile.md<br/>eats everything"]
+    class R orange
+    class D1 green
+    class D2 blue
+
+classDef orange fill:#D97757,stroke:#B65F3F,color:#FFFFFF
+classDef green fill:#788C5D,stroke:#5F7048,color:#FFFFFF
+classDef blue fill:#6A9BCC,stroke:#4F7FAE,color:#FFFFFF
+classDef dark fill:#141413,stroke:#141413,color:#FAF9F5
+classDef soft fill:#E8E6DC,stroke:#B0AEA5,color:#141413
+classDef bad fill:#F7E3DA,stroke:#D97757,color:#141413
+

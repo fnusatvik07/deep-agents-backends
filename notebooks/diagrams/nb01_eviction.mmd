@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant M as Model
+    participant T as fetch_server_logs
+    participant MW as Filesystem middleware
+    participant F as StateBackend
+    M->>T: call tool
+    T-->>MW: 179,329 characters of logs
+    MW->>F: write /large_tool_results/call_id
+    MW-->>M: short preview + the file path
+    M->>F: grep " ERROR " in that file
+    F-->>M: the single matching line
+    Note over M: the full log never entered the context window

@@ -1,0 +1,26 @@
+# Secrets: never commit your real API keys
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+
+# Generated while running the notebooks (recreated on every run)
+notebooks/agent_files/
+notebooks/playground/
+notebooks/diagrams/*.mmd.bak
+
+# Slide QA renders
+slides_build/qa/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

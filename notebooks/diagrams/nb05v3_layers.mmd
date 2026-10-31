@@ -1,0 +1,18 @@
+flowchart LR
+    U["User asks to save<br/>text with a secret"] --> L1["Layer 1<br/>the AI's own judgment"]
+    L1 --> L2["Layer 2<br/>permission rules"]
+    L2 --> L3["Layer 3<br/>policy guard (code)"]
+    L3 --> DB[("Knowledge base")]
+    L3 -. "every attempt" .-> LOG[("Audit log")]
+    class L1 soft
+    class L2 blue
+    class L3 orange
+    class DB green
+
+classDef orange fill:#D97757,stroke:#B65F3F,color:#FFFFFF
+classDef green fill:#788C5D,stroke:#5F7048,color:#FFFFFF
+classDef blue fill:#6A9BCC,stroke:#4F7FAE,color:#FFFFFF
+classDef dark fill:#141413,stroke:#141413,color:#FAF9F5
+classDef soft fill:#E8E6DC,stroke:#B0AEA5,color:#141413
+classDef bad fill:#F7E3DA,stroke:#D97757,color:#141413
+

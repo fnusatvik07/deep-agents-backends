@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph T1["thread: trip-to-lisbon"]
+        t1a["Turn 1<br/>write_file"] --> st1[("state.files<br/>/plan/itinerary.md")]
+        st1 --> t1b["Turn 2<br/>read_file + edit_file"]
+    end
+    subgraph T2["thread: someone-else"]
+        t2a["Turn 1<br/>ls /plan"] --> st2[("state.files<br/>empty")]
+    end
+    CP[["Checkpointer<br/>InMemorySaver"]] -. "saves after every step" .-> st1
+    CP -. "saves after every step" .-> st2
+    class st1 green
+    class st2 bad
+    class CP dark
+
+classDef orange fill:#D97757,stroke:#B65F3F,color:#FFFFFF
+classDef green fill:#788C5D,stroke:#5F7048,color:#FFFFFF
+classDef blue fill:#6A9BCC,stroke:#4F7FAE,color:#FFFFFF
+classDef dark fill:#141413,stroke:#141413,color:#FAF9F5
+classDef soft fill:#E8E6DC,stroke:#B0AEA5,color:#141413
+classDef bad fill:#F7E3DA,stroke:#D97757,color:#141413
+

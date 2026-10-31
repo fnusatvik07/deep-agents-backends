@@ -1,0 +1,20 @@
+flowchart TB
+    E["Employee Priya"] --> AG["Northwind assistant"]
+    AG --> CB{{"CompositeBackend"}}
+    CB -->|"anything else"| SB[("Memory only<br/>drafts, scratch")]
+    CB -->|"/memories/"| ST[("Store<br/>drawer (priya, memories)")]
+    CB -->|"/docs/"| FS[("Disk folder<br/>northwind_docs/")]
+    PERM["Rule: writing to /docs/ is denied"] -. "protects" .-> FS
+    class CB orange
+    class SB soft
+    class ST green
+    class FS blue
+    class PERM dark
+
+classDef orange fill:#D97757,stroke:#B65F3F,color:#FFFFFF
+classDef green fill:#788C5D,stroke:#5F7048,color:#FFFFFF
+classDef blue fill:#6A9BCC,stroke:#4F7FAE,color:#FFFFFF
+classDef dark fill:#141413,stroke:#141413,color:#FAF9F5
+classDef soft fill:#E8E6DC,stroke:#B0AEA5,color:#141413
+classDef bad fill:#F7E3DA,stroke:#D97757,color:#141413
+

@@ -1,0 +1,19 @@
+flowchart TD
+    REQ["Read /salaries/bands/engineering.md"] --> R1{{"Rule 1: allow reading<br/>/salaries/bands/**"}}
+    R1 -->|"fits"| ALLOW["Allowed"]
+    R1 -->|"does not fit"| R2{{"Rule 2: deny<br/>/salaries/**"}}
+    R2 -->|"fits"| DENY["Denied"]
+    R2 -->|"does not fit"| R3{{"Rules 3 and 4"}}
+    R3 -->|"fits"| ACT["deny, or ask a human"]
+    R3 -->|"nothing fits"| DEF["Allowed"]
+    class ALLOW,DEF green
+    class DENY bad
+    class ACT orange
+
+classDef orange fill:#D97757,stroke:#B65F3F,color:#FFFFFF
+classDef green fill:#788C5D,stroke:#5F7048,color:#FFFFFF
+classDef blue fill:#6A9BCC,stroke:#4F7FAE,color:#FFFFFF
+classDef dark fill:#141413,stroke:#141413,color:#FAF9F5
+classDef soft fill:#E8E6DC,stroke:#B0AEA5,color:#141413
+classDef bad fill:#F7E3DA,stroke:#D97757,color:#141413
+

@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant A as Agent
+    participant P as You (the reviewer)
+    participant D as Your Mac
+    A->>P: I want to delete /config. OK?
+    Note over A,P: the agent is paused and waits
+    alt you say no
+        P->>A: reject: "Never delete config"
+        A-->>P: OK, I did not delete it
+    else you say yes
+        P->>A: approve
+        A->>D: delete /config for real
+    end

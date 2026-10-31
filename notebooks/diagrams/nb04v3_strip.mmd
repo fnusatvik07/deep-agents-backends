@@ -1,0 +1,15 @@
+flowchart TB
+    P["Agent writes /memories/prefs.md"] --> M{{"Rule /memories/ matches"}}
+    M --> S["Route part removed:<br/>/prefs.md"]
+    S --> K[("Store, Alice's drawer<br/>file /prefs.md")]
+    K -. "when the agent lists or searches" .-> BACK["Route part added back:<br/>/memories/prefs.md"]
+    class M orange
+    class K green
+
+classDef orange fill:#D97757,stroke:#B65F3F,color:#FFFFFF
+classDef green fill:#788C5D,stroke:#5F7048,color:#FFFFFF
+classDef blue fill:#6A9BCC,stroke:#4F7FAE,color:#FFFFFF
+classDef dark fill:#141413,stroke:#141413,color:#FAF9F5
+classDef soft fill:#E8E6DC,stroke:#B0AEA5,color:#141413
+classDef bad fill:#F7E3DA,stroke:#D97757,color:#141413
+

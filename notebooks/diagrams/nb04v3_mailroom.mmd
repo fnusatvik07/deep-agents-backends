@@ -1,0 +1,17 @@
+flowchart LR
+    A["Agent writes a file"] --> R{{"CompositeBackend<br/>(the mail room)"}}
+    R -->|"/memories/..."| ST[("Long term store")]
+    R -->|"/docs/..."| D[("Folder on disk")]
+    R -->|"anything else"| M[("Memory only<br/>(the default)")]
+    class R orange
+    class ST green
+    class D blue
+    class M soft
+
+classDef orange fill:#D97757,stroke:#B65F3F,color:#FFFFFF
+classDef green fill:#788C5D,stroke:#5F7048,color:#FFFFFF
+classDef blue fill:#6A9BCC,stroke:#4F7FAE,color:#FFFFFF
+classDef dark fill:#141413,stroke:#141413,color:#FAF9F5
+classDef soft fill:#E8E6DC,stroke:#B0AEA5,color:#141413
+classDef bad fill:#F7E3DA,stroke:#D97757,color:#141413
+

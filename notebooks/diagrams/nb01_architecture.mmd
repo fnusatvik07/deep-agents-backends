@@ -1,0 +1,23 @@
+flowchart LR
+    U(["User"]) --> A["Deep agent<br/>LLM loop"]
+    A -->|"ls, read_file, write_file,<br/>edit_file, delete, glob, grep"| T["Filesystem tools"]
+    T --> B{{"Backend<br/>(BackendProtocol)"}}
+    B --> S1[("StateBackend<br/>LangGraph state")]
+    B --> S2[("FilesystemBackend<br/>real disk")]
+    B --> S3[("StoreBackend<br/>BaseStore")]
+    B --> S4[("ContextHubBackend<br/>Hub repo")]
+    B --> S5[("Sandbox / LocalShell<br/>files + execute")]
+    B --> S6[("Custom<br/>your storage")]
+    class A dark
+    class B orange
+    class S1,S3 green
+    class S2,S5 blue
+    class S4,S6 soft
+
+classDef orange fill:#D97757,stroke:#B65F3F,color:#FFFFFF
+classDef green fill:#788C5D,stroke:#5F7048,color:#FFFFFF
+classDef blue fill:#6A9BCC,stroke:#4F7FAE,color:#FFFFFF
+classDef dark fill:#141413,stroke:#141413,color:#FAF9F5
+classDef soft fill:#E8E6DC,stroke:#B0AEA5,color:#141413
+classDef bad fill:#F7E3DA,stroke:#D97757,color:#141413
+

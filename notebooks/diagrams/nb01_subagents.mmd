@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant U as User
+    participant S as Supervisor
+    participant R as researcher subagent
+    participant F as Shared state files
+    U->>S: Research e cargo bikes in Europe
+    S->>R: task(description)
+    R->>F: write_file /research/notes.md (7,700 chars)
+    R-->>S: "Notes are ready" (one sentence only)
+    S->>F: read_file /research/notes.md
+    S->>F: write_file /report/brief.md
+    S-->>U: Done
+    Note over F: the notes outlive the subagent

@@ -1,0 +1,29 @@
+flowchart TD
+    Q1{{"Must the agent<br/>run programs?"}} -->|"yes"| Q2{{"On my own<br/>trusted computer?"}}
+    Q2 -->|"yes"| LS["Disk + terminal<br/>with approval"]
+    Q2 -->|"no"| SB["Isolated sandbox"]
+    Q1 -->|"no"| Q3{{"Must it be kept after<br/>the conversation?"}}
+    Q3 -->|"no"| ST["Memory"]
+    Q3 -->|"yes"| Q4{{"Where does it<br/>already live?"}}
+    Q4 -->|"in a folder"| FS["Disk, locked<br/>virtual_mode=True"]
+    Q4 -->|"in a database or service"| CU["Your own storage place"]
+    Q4 -->|"nowhere yet"| Q5{{"Need a history<br/>of every change?"}}
+    Q5 -->|"yes"| CH["Context Hub"]
+    Q5 -->|"no"| SO["Store, one drawer<br/>per user or company"]
+    LS --> CO["Combine the answers<br/>in the mail room<br/>(default = memory)"]
+    SB --> CO
+    ST --> CO
+    FS --> CO
+    CU --> CO
+    CH --> CO
+    SO --> CO
+    class CO orange
+    class Q1,Q2,Q3,Q4,Q5 soft
+
+classDef orange fill:#D97757,stroke:#B65F3F,color:#FFFFFF
+classDef green fill:#788C5D,stroke:#5F7048,color:#FFFFFF
+classDef blue fill:#6A9BCC,stroke:#4F7FAE,color:#FFFFFF
+classDef dark fill:#141413,stroke:#141413,color:#FAF9F5
+classDef soft fill:#E8E6DC,stroke:#B0AEA5,color:#141413
+classDef bad fill:#F7E3DA,stroke:#D97757,color:#141413
+

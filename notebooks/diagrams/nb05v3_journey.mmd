@@ -1,0 +1,22 @@
+flowchart LR
+    M["Agent wants to<br/>save a file"] --> P{{"Permission rules<br/>(Part 4)"}}
+    P -->|"denied"| E1["Stopped:<br/>permission denied"]
+    P -->|"needs approval"| H["A human decides"]
+    P -->|"allowed"| W{{"Policy guard<br/>(Part 5)"}}
+    H -->|"approved"| W
+    W -->|"blocked"| E2["Stopped:<br/>reason sent to agent"]
+    W -->|"ok"| B["Your storage place<br/>(Parts 1 to 3)"]
+    B --> S[("Database table")]
+    W -. "writes down every attempt" .-> LOG[("Audit log")]
+    class P,W orange
+    class E1,E2 bad
+    class S green
+    class LOG dark
+
+classDef orange fill:#D97757,stroke:#B65F3F,color:#FFFFFF
+classDef green fill:#788C5D,stroke:#5F7048,color:#FFFFFF
+classDef blue fill:#6A9BCC,stroke:#4F7FAE,color:#FFFFFF
+classDef dark fill:#141413,stroke:#141413,color:#FAF9F5
+classDef soft fill:#E8E6DC,stroke:#B0AEA5,color:#141413
+classDef bad fill:#F7E3DA,stroke:#D97757,color:#141413
+

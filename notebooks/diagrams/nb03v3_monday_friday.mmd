@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant U as Alice
+    participant A as Chef agent
+    participant S as Store, Alice's drawer
+    Note over U,A: Monday, conversation 1
+    U->>A: I'm vegetarian, allergic to peanuts
+    A->>S: create /profile.md
+    Note over U,A: Friday, conversation 2 (no chat history)
+    U->>A: Suggest a dinner
+    A->>S: open /profile.md
+    S-->>A: vegetarian, peanut allergy, spicy
+    A-->>U: Spicy chickpea curry
